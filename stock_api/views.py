@@ -23,7 +23,7 @@ class ProductVariantViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows product variants to be viewed.
     """
-    queryset = ProductVariant.objects.all()
+    queryset = ProductVariant.objects.all().order_by('product__name', 'size', 'color')
     serializer_class = ProductVariantSerializer
 
 class LocationViewSet(viewsets.ReadOnlyModelViewSet):
