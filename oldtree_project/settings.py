@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     
     # 3rd Party Apps
     'rest_framework',
+    'corsheaders',
 
     # Local Apps
     'stock_api',
@@ -56,7 +57,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Add whitenoise middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,3 +116,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- DEFAULT PRIMARY KEY FIELD TYPE ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # The default origin for VS Code Live Server
+    "http://localhost:5500",   # Another possible origin for Live Server
+]
