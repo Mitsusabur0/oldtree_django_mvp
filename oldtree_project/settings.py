@@ -122,6 +122,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500",  # The default origin for VS Code Live Server
-    "http://localhost:5500",   # Another possible origin for Live Server
+    "http://127.0.0.1:5500",  
+    "http://localhost:5500",  
+    "https://mitsusabur0.github.io",
 ]
+
+
+# OPTIONAL BUT RECOMMENDED: Allow Render Deploy Previews to connect
+RENDER_EXTERNAL_URL = os.environ.get('RENDER_EXTERNAL_URL')
+if RENDER_EXTERNAL_URL:
+    CORS_ALLOWED_ORIGINS.append(RENDER_EXTERNAL_URL)
